@@ -5,6 +5,8 @@
 
 int main(int argc, char **argv) {
 
+    int var = 4711;
+
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
@@ -13,6 +15,8 @@ int main(int argc, char **argv) {
     fmt::print("Hello, {}!\n", tea::PROJECT_NAME);
 
     /* INSERT YOUR CODE HERE */
+    fmt::print("Value of var: {}\n", var);
+
 
     return 0; /* exit gracefully*/
 }
