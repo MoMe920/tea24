@@ -3,19 +3,8 @@
 
 #include "config.h"
 
-
-//Teil 3: Funktionen mit Zeigern 
-// 1. Übergabe als Kopie (Call-by-Value)
-void changeValueByParameter(int value) {
-    value = 99;
-    fmt::print("[In Funktion] value wurde geändert auf: {}\n", value);
-}
-
-// 2. Übergabe als Zeiger (Call-by-Pointer)
-void changeValueByPointer(int* ptr) {
-        *ptr = 77;
-        fmt::print("[In Funktion] *ptr wurde geändert auf: {}\n", *ptr);
-}
+void changeValueByParameter(int value);
+void changeValueByPointer(int* ptr);      // int* prt oder int *ptr
 
 
 int main(int argc, char **argv) {
@@ -36,10 +25,10 @@ int main(int argc, char **argv) {
     // Teil 1: Zeiger-Grundlagen
     int var = 4711;
     int x = 10;
-    int* p = &x;
+    int* ptr = &x;  // & gehe zu Variable x, schaue auf welcher Adresse sie liegt und schreibe sie in den Pointer rein 
     int y = 5;
 
-    *p = 42;
+    *ptr = 42;
 
     
     /**
@@ -89,5 +78,16 @@ int main(int argc, char **argv) {
 }
 
 
+//Teil 3: Funktionen mit Zeigern 
+// 1. Übergabe als Kopie (Call-by-Value)
+void changeValueByParameter(int value) {
+    value = 99;
+    fmt::print("[In Funktion] value wurde geändert auf: {}\n", value);
+}
 
+// 2. Übergabe als Zeiger (Call-by-Pointer)
+void changeValueByPointer(int* ptr) {
+        *ptr = 77;
+        fmt::print("[In Funktion] *ptr wurde geändert auf: {}\n", *ptr);
+}
 
