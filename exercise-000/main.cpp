@@ -21,15 +21,16 @@ void changeValueByPointer(int* ptr) {
 int main(int argc, char **argv) {
 
     
-    // Teil 0: Kommandozeilenparameter (`argc` und `argv`)
+    // Teil 0: Kommandozeilenparameter ( argc und argv )
     // 1. Anzahl der Argumente ausgeben
-    printf("Anzahl Argumente (argc): %d\n", argc);
+    fmt::print("Anzahl Argumente (argc): {}\n", argc);
 
     // 2. Alle Argumente und deren Adressen in einer Schleife ausgeben
     for (int i = 0; i < argc; i++) {
-        // %s gibt den String aus, %p die Speicheradresse des Strings
-        printf("argv[%d] = \"%s\" (Adresse: %p)\n", i, argv[i], (void *)argv[i]);
+        // {} ersetzt %s für Strings und %p für Speicheradressen
+        fmt::print("argv[{0}] = \"{1}\" (Adresse: {2})\n", i, argv[i], static_cast<const void*>(argv[i]));
     }
+
 
 
     // Teil 1: Zeiger-Grundlagen
