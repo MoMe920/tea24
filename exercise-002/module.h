@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include "bonus_config.h"
 
 #ifndef WORKSPACES_TEA22_EXERCISE_003_MODULE_H
 #define WORKSPACES_TEA22_EXERCISE_003_MODULE_H
@@ -18,7 +19,9 @@ void doSomethingPtr(int* ptr);
 int* doReturnAPtr();
 
 void doSomethingStatic();
-
+void doSomethingNonStatic();
+void printStaticModuleVariables();
+void printModuleShadow();
 
 
 #endif

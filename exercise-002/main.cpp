@@ -3,6 +3,9 @@
 
 #include "module.h"
 
+extern int moduleValue;
+int shadow = 99;
+
 auto main(int argc, char** argv) -> int
 {
     /**
@@ -30,6 +33,20 @@ auto main(int argc, char** argv) -> int
     doSomethingStatic();
     doSomethingStatic();
 
+    doSomethingNonStatic();
+    doSomethingNonStatic();
+    doSomethingNonStatic();
+    doSomethingNonStatic();
+
+    printStaticModuleVariables();
+
+    printModuleShadow();
+
+    fmt::print("main.cpp   -> shadow: Wert = {}, Adresse = {}\n", shadow, fmt::ptr(&shadow));
+    
+
+    // fmt::print("{}\n", moduleValue); // Fehler-Simulation aufgrund des Aufrufens einer externen static variablen 
+
     fmt::print("Value of foo {} address of foo {}\n", foo, fmt::ptr(&foo));
     fmt::print("Value of foo2 {} address of foo2 {}\n", foo2, fmt::ptr(&foo2));
     fmt::print("Value of data {} address of data {}\n", data, fmt::ptr(&data));
@@ -49,6 +66,7 @@ auto main(int argc, char** argv) -> int
 
     fmt::print("array_ptr[0] {}\n", array_ptr[0]);
     fmt::print("big_data_blob[0] {}\n", big_data_blob[0]);
+
 
     return 0; /* exit gracefully*/
 }
