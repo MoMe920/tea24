@@ -1,0 +1,18 @@
+1. Unterschied zwischen Bibliotheks-Header und generiertem Konfig-Header
+
+    Bibliotheks-Header (z. B. version.h): Wird von Hand geschrieben und definiert die 
+    feste Programmierschnittstelle (API) sowie die Funktionsdeklarationen der Bibliothek.
+
+    Generierter Konfig-Header (z. B. version_config.h): Wird von CMake automatisiert aus einer Vorlage (.h.in) erzeugt 
+    und enthält dynamische, projektbezogene Daten (wie Namen und Versionsnummern).
+
+2. Warum configure_file(...) für Versionsdaten nützlich ist
+
+    Es ermöglicht die zentrale Pflege von Versionsnummern und Projektdaten in der CMakeLists.txt. CMake überträgt diese Werte 
+    automatisch in den C++-Code, wodurch manuelle Tippfehler vermieden werden und Code sowie Projektkonfiguration stets synchron bleiben.
+
+3. Wie PUBLIC Include-Pfade und Link-Abhängigkeiten zusammenspielen
+
+    Das Schlüsselwort PUBLIC vererbt Include-Pfade und Link-Abhängigkeiten an alle nachfolgenden Ziele (Targets), 
+    die diese Bibliothek nutzen (wie z. B. exercise-003). Sobald ein Target gegen die Bibliothek linkt, stehen ihm automatisch 
+    auch deren Include-Pfade zur Verfügung, ohne dass diese manuell erneut deklariert werden müssen.
