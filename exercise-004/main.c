@@ -1,9 +1,8 @@
-#include <stdio.h>
+// #include <stdio.h> // wird fuer putc benötigt -> wird nicht verwendet, da das zeichne über greet.c kommt 
 #include "greet.h"
 
 int main(void)
 {
-    putc(ZEICHEN, stdout);
-    putc('\n', stdout);
+    gruss();
     return 0;
 }
